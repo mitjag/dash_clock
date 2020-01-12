@@ -70,9 +70,24 @@ class _DashPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final linePaint = Paint()
+    final linePaint1 = Paint()
       ..color = color
       ..strokeWidth = lineWidth
+      ..strokeCap = StrokeCap.square;
+
+    final linePaint5 = Paint()
+      ..color = color
+      ..strokeWidth = lineWidth + 1
+      ..strokeCap = StrokeCap.square;
+
+    final linePaint15 = Paint()
+      ..color = color
+      ..strokeWidth = lineWidth + 2
+      ..strokeCap = StrokeCap.square;
+
+    final linePaint30 = Paint()
+      ..color = color
+      ..strokeWidth = lineWidth + 3
       ..strokeCap = StrokeCap.square;
 
     final dash = DashMetrics(size);
@@ -82,6 +97,17 @@ class _DashPainter extends CustomPainter {
         if (h == last && m > minute) {
           break;
         }
+        var linePaint;
+        if (m != 0 && m % 30 == 0) {
+          linePaint = linePaint30;
+        } else if (m != 0 && m % 15 == 0) {
+          linePaint = linePaint15;
+        } else if (m != 0 && m % 5 == 0) {
+          linePaint = linePaint5;
+        } else {
+          linePaint = linePaint1;
+        }
+
         canvas.drawLine(dash.dashP1(h, m), dash.dashP2(h, m), linePaint);
       }
     }

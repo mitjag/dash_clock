@@ -100,6 +100,13 @@ class _DashClockState extends State<DashClock> {
         color: customTheme.backgroundColor,
         child: Stack(
           children: [
+            DrawnDash(
+              hour: _now.hour,
+              minute: _now.minute,
+              second: _now.second,
+              color: customTheme.accentColor,
+              thickness: 5,
+            ),
             DrawnBackground(
               color: customTheme.highlightColor,
               thickness: 1,
@@ -107,15 +114,8 @@ class _DashClockState extends State<DashClock> {
             DrawnForeground(
               hour: _now.hour,
               minute: _now.minute,
-              color: customTheme.highlightColor,
+              color: customTheme.primaryColor,
               thickness: 1,
-            ),
-            DrawnDash(
-              hour: _now.hour,
-              minute: _now.minute,
-              second: _now.second,
-              color: customTheme.accentColor,
-              thickness: 4,
             ),
           ],
         ),
