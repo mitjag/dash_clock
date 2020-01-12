@@ -51,15 +51,39 @@ class DashMetrics {
   }
 
   Offset dashP1(int hour, int minute) {
-    return _dash(_mod12(hour), minute, 0.1);
+    return _dash(_mod12(hour), minute, 0.1, false);
   }
 
-  Offset dashP2(int hour, minute) {
-    return _dash(_mod12(hour), minute, 0.9);
+  Offset dashP2(int hour, int minute) {
+    return _dash(_mod12(hour), minute, 0.9, false);
   }
 
-  Offset _dash(int hour, int minute, double scale) {
-    return Offset(_hourOffsetX(hour) + width * scale, _minuteOffsetY(minute));
+  Offset backgroundP1(int hour, int minute) {
+    return _dash(_mod12(hour), minute, 0.1, true);
+  }
+
+  Offset backgroundP2(int hour, int minute) {
+    return _dash(_mod12(hour), minute, 0.9, true);
+  }
+
+  Offset _dash(int hour, int minute, double scale, bool background) {
+    if (minute == 0) {
+      // top dash is whole hour 60 min
+      var h;
+      if (background) {
+        if (hour > 0) {
+          h = hour - 1;
+        } else {
+          h = 11;
+        }
+      } else {
+        h = hour;
+      }
+      return Offset(_hourOffsetX(h) + width * scale, _minuteOffsetY(59));
+    } else {
+      return Offset(
+          _hourOffsetX(hour) + width * scale, _minuteOffsetY(minute - 1));
+    }
   }
 
   Rect rect(int hour) {

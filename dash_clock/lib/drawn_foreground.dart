@@ -98,17 +98,18 @@ class _DashPainter extends CustomPainter {
           break;
         }
         var linePaint;
-        if (m != 0 && m % 30 == 0) {
+        if (m % 30 == 0) {
           linePaint = linePaint30;
-        } else if (m != 0 && m % 15 == 0) {
+        } else if (m % 15 == 0) {
           linePaint = linePaint15;
-        } else if (m != 0 && m % 5 == 0) {
+        } else if (m % 5 == 0) {
           linePaint = linePaint5;
         } else {
           linePaint = linePaint1;
         }
-
-        canvas.drawLine(dash.dashP1(h, m), dash.dashP2(h, m), linePaint);
+        if (h != last || m != 0) {
+          canvas.drawLine(dash.dashP1(h, m), dash.dashP2(h, m), linePaint);
+        }
       }
     }
   }

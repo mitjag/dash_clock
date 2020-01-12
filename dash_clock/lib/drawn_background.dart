@@ -49,19 +49,19 @@ class _BackgroundPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final linePaint1 = Paint()
+    final linePaint5 = Paint()
       ..color = color.withAlpha(128)
-      ..strokeWidth = lineWidth
-      ..strokeCap = StrokeCap.square;
-
-    final linePaint2 = Paint()
-      ..color = color.withAlpha(192)
       ..strokeWidth = lineWidth + 1
       ..strokeCap = StrokeCap.square;
 
-    final linePaint3 = Paint()
-      ..color = color
+    final linePaint15 = Paint()
+      ..color = color.withAlpha(192)
       ..strokeWidth = lineWidth + 2
+      ..strokeCap = StrokeCap.square;
+
+    final linePaint30 = Paint()
+      ..color = color
+      ..strokeWidth = lineWidth + 3
       ..strokeCap = StrokeCap.square;
 
     var dash = DashMetrics(size);
@@ -69,14 +69,14 @@ class _BackgroundPainter extends CustomPainter {
     for (int h = 0; h < 12; h++) {
       for (int m = 0; m < 60; m = m + 5) {
         var linePaint;
-        if (m != 0 && m % 30 == 0) {
-          linePaint = linePaint3;
-        } else if (m != 0 && m % 15 == 0) {
-          linePaint = linePaint2;
+        if (m % 30 == 0) {
+          linePaint = linePaint30;
+        } else if (m % 15 == 0) {
+          linePaint = linePaint15;
         } else {
-          linePaint = linePaint1;
+          linePaint = linePaint5;
         }
-        canvas.drawLine(dash.dashP1(h, m), dash.dashP2(h, m), linePaint);
+        canvas.drawLine(dash.backgroundP1(h, m), dash.backgroundP2(h, m), linePaint);
       }
     }
 

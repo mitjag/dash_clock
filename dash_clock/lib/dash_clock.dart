@@ -74,11 +74,11 @@ class _DashClockState extends State<DashClock> {
     //    [DigitalClock].
     final customTheme = Theme.of(context).brightness == Brightness.light
         ? Theme.of(context).copyWith(
-            // Hour hand.
+            // foreground dash
             primaryColor: Color(0xFF4285F4),
-            // Minute hand.
+            // background dash
             highlightColor: Color(0xFF8AB4F8),
-            // Second hand.
+            // dash
             accentColor: Color(0xFF669DF6),
             backgroundColor: Color(0xFFD2E3FC),
           )
@@ -93,7 +93,7 @@ class _DashClockState extends State<DashClock> {
 
     return Semantics.fromProperties(
       properties: SemanticsProperties(
-        label: 'Analog clock with time $time',
+        label: 'Dash clock with time $time',
         value: time,
       ),
       child: Container(
@@ -105,7 +105,7 @@ class _DashClockState extends State<DashClock> {
               minute: _now.minute,
               second: _now.second,
               color: customTheme.accentColor,
-              thickness: 5,
+              thickness: 6,
             ),
             DrawnBackground(
               color: customTheme.highlightColor,
