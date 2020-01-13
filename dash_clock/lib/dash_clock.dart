@@ -90,7 +90,9 @@ class _DashClockState extends State<DashClock> {
             backgroundColor: Color(0xFF3C4043),
           );
 
+    // hides status bar and navigation bar
     SystemChrome.setEnabledSystemUIOverlays([]);
+
     final time = DateFormat.Hms().format(DateTime.now());
 
     return Semantics.fromProperties(
