@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:dash_clock/drawn_background.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
@@ -89,6 +90,7 @@ class _DashClockState extends State<DashClock> {
             backgroundColor: Color(0xFF3C4043),
           );
 
+    SystemChrome.setEnabledSystemUIOverlays([]);
     final time = DateFormat.Hms().format(DateTime.now());
 
     return Semantics.fromProperties(

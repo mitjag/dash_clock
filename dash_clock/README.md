@@ -1,10 +1,10 @@
-# Analog Clock
+# Dash Clock
 
-This app is an example of an analog clock.
-It has a light theme and a dark theme, and displays sample weather and location data.
+This app is an dash clock made of dashes.
+It has a light theme and a dark theme.
 
-<img src='analog.gif' width='350'>
+<img src='dash.gif' width='350'>
 
-<img src='analog_dark.png' width='350'>
+<img src='dash_dark.png' width='350'>
 
-<img src='analog_light.png' width='350'>
+<img src='dash_light.png' width='350'>
