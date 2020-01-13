@@ -9,7 +9,7 @@ import 'model.dart';
 /// Returns a clock [Widget] with [ClockModel].
 ///
 /// Example:
-///   final myClockBuilder = (ClockModel model) => DashClock(model);
+///   final myClockBuilder = (ClockModel model) => AnalogClock(model);
 ///
 /// Contestants: Do not edit this.
 typedef Widget ClockBuilder(ClockModel model);
@@ -23,7 +23,7 @@ typedef Widget ClockBuilder(ClockModel model);
 /// To use the [ClockCustomizer], pass your clock into it, using a ClockBuilder.
 ///
 /// ```
-///   final myClockBuilder = (ClockModel model) => DashClock(model);
+///   final myClockBuilder = (ClockModel model) => AnalogClock(model);
 ///   return ClockCustomizer(myClockBuilder);
 /// ```
 /// Contestants: Do not edit this.
@@ -79,6 +79,29 @@ class _ClockCustomizerState extends State<ClockCustomizer> {
     );
   }
 
+  Widget _switch(String label, bool value, ValueChanged<bool> onChanged) {
+    return Row(
+      children: <Widget>[
+        Expanded(child: Text(label)),
+        Switch(
+          value: value,
+          onChanged: onChanged,
+        ),
+      ],
+    );
+  }
+
+  Widget _textField(
+      String currentValue, String label, ValueChanged<Null> onChanged) {
+    return TextField(
+      decoration: InputDecoration(
+        hintText: currentValue,
+        helperText: label,
+      ),
+      onChanged: onChanged,
+    );
+  }
+
   Widget _configDrawer(BuildContext context) {
     return SafeArea(
       child: Drawer(
@@ -87,11 +110,40 @@ class _ClockCustomizerState extends State<ClockCustomizer> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                _textField(_model.location, 'Location', (String location) {
+                  setState(() {
+                    _model.location = location;
+                  });
+                }),
+                _textField(_model.temperature.toString(), 'Temperature',
+                    (String temperature) {
+                  setState(() {
+                    _model.temperature = double.parse(temperature);
+                  });
+                }),
                 _enumMenu('Theme', _themeMode,
                     ThemeMode.values.toList()..remove(ThemeMode.system),
                     (ThemeMode mode) {
                   setState(() {
                     _themeMode = mode;
+                  });
+                }),
+                _switch('24-hour format', _model.is24HourFormat, (bool value) {
+                  setState(() {
+                    _model.is24HourFormat = value;
+                  });
+                }),
+                _enumMenu(
+                    'Weather', _model.weatherCondition, WeatherCondition.values,
+                    (WeatherCondition condition) {
+                  setState(() {
+                    _model.weatherCondition = condition;
+                  });
+                }),
+                _enumMenu('Units', _model.unit, TemperatureUnit.values,
+                    (TemperatureUnit unit) {
+                  setState(() {
+                    _model.unit = unit;
                   });
                 }),
               ],
