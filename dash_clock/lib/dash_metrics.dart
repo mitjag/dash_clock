@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Calculations for dash position on the screen/canvas
+/// Calculations for dash position on the screen/canvas.
 ///
 class DashMetrics {
   Size size;
@@ -10,7 +10,7 @@ class DashMetrics {
   double offsetX;
   double offsetY;
 
-  /// Used for grouping hours into 4 groups 3, 6, 9, 12
+  /// Used for grouping hours into 4 groups 3, 6, 9 and 12.
   static const Map<int, int> offsetXPerHour = const {
     0: 0,
     1: 0,
@@ -68,7 +68,7 @@ class DashMetrics {
 
   Offset _dash(int hour, int minute, double scale, bool background) {
     if (minute == 0) {
-      // top dash is whole hour 60 min
+      // Top dash is whole hour 60 min.
       var h;
       if (background) {
         if (hour > 0) {

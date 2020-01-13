@@ -10,22 +10,13 @@ import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:intl/intl.dart';
-import 'package:vector_math/vector_math_64.dart' show radians;
 
 import 'drawn_dash.dart';
 import 'drawn_background.dart';
 import 'drawn_foreground.dart';
 
-/// Total distance traveled by a second or a minute hand, each second or minute,
-/// respectively.
-final radiansPerTick = radians(360 / 60);
-
-/// Total distance traveled by an hour hand, each hour, in radians.
-final radiansPerHour = radians(360 / 12);
-
-/// A basic analog clock.
+/// Dash clock.
 ///
-/// You can do better than this!
 class DashClock extends StatefulWidget {
   const DashClock(this.model);
 
@@ -90,7 +81,7 @@ class _DashClockState extends State<DashClock> {
             backgroundColor: Color(0xFF3C4043),
           );
 
-    // hides status bar and navigation bar
+    // Hide status bar and navigation bar.
     SystemChrome.setEnabledSystemUIOverlays([]);
 
     final time = DateFormat.Hms().format(DateTime.now());

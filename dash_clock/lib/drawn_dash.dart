@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dash.dart';
 import 'dash_metrics.dart';
 
-/// A clock dash that is drawn with [CustomPainter]
+/// A clock dash that is drawn with [CustomPainter].
 ///
 class DrawnDash extends Dash {
   /// Create a const clock [Dash].
@@ -22,7 +22,7 @@ class DrawnDash extends Dash {
         assert(thickness != null),
         super(hour: hour, minute: minute, second: second, color: color);
 
-  /// How thick the hand should be drawn, in logical pixels.
+  /// How thick the dash should be drawn.
   final double thickness;
 
   @override
@@ -43,7 +43,7 @@ class DrawnDash extends Dash {
   }
 }
 
-/// [CustomPainter] that draws a clock dash.
+/// [CustomPainter] that draws a clock dash for the current second.
 class _DashPainter extends CustomPainter {
   _DashPainter({
     @required this.hour,

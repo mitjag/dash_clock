@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Base clas for drawing dash
+/// Base clas for drawing dash.
 ///
 abstract class Dash extends StatelessWidget {
   const Dash({
@@ -13,11 +13,11 @@ abstract class Dash extends StatelessWidget {
         assert(second != null),
         assert(color != null);
 
-  // Dash color
-  final Color color;
-
-  // Dash position
+  // Dash position.
   final int hour;
   final int minute;
   final int second;
+
+  // Dash color.
+  final Color color;
 }

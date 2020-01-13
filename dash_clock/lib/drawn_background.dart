@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'dash_metrics.dart';
 
-/// A clock dash that is drawn with [CustomPainter]
+/// A clock dash that is drawn with [CustomPainter].
 ///
 class DrawnBackground extends StatelessWidget {
   /// Create a const clock [DrawnBackground].
@@ -16,7 +16,7 @@ class DrawnBackground extends StatelessWidget {
 
   final Color color;
 
-  /// How thick the hand should be drawn, in logical pixels.
+  // How thick the dash should be drawn.
   final double thickness;
 
   @override
@@ -34,7 +34,9 @@ class DrawnBackground extends StatelessWidget {
   }
 }
 
-/// [CustomPainter] that draws a clock dash.
+/// [CustomPainter] that draws a background for dash clock.
+/// 
+/// Draws different marks every 5, 15 and 30 minutes.
 class _BackgroundPainter extends CustomPainter {
   _BackgroundPainter({
     @required this.color,
