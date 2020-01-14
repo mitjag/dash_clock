@@ -35,7 +35,7 @@ class DrawnBackground extends StatelessWidget {
 }
 
 /// [CustomPainter] that draws a background for dash clock.
-/// 
+///
 /// Draws different marks every 5, 15 and 30 minutes.
 class _BackgroundPainter extends CustomPainter {
   _BackgroundPainter({
@@ -76,7 +76,8 @@ class _BackgroundPainter extends CustomPainter {
         } else {
           linePaint = linePaint5;
         }
-        canvas.drawLine(dash.backgroundP1(h, m), dash.backgroundP2(h, m), linePaint);
+        canvas.drawLine(
+            dash.backgroundP1(h, m), dash.backgroundP2(h, m), linePaint);
       }
     }
 

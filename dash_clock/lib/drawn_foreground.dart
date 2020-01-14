@@ -46,7 +46,7 @@ class DrawnForeground extends Dash {
 }
 
 /// [CustomPainter] that draws a foreground for dash clock.
-/// 
+///
 /// Draws hours and minutes that already passed.
 class _DashPainter extends CustomPainter {
   _DashPainter({
