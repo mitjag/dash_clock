@@ -8,4 +8,4 @@ See a [live demo](https://maryx.github.io/flutter_clock) with Flutter for Web!
 
 [Dash Clock](dash_clock)
 
-<img src='dash_clock/dash.gif' width='350'>
+<img src='dash_clock/dash_light.png' width='350'>
